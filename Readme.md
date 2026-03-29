@@ -18,6 +18,8 @@ Heads-Up Display (HUD): A futuristic, transparent overlay is drawn directly onto
 
 Integrated Command Center using python library: A professional Graphical User Interface (GUI) serves as the launchpad, allowing users to easily initialize the camera, view logs, or shut down the system with a single click.
 
+ WHATS THE AI ELEMENT IN MY PROJECT :The core AI component of SleepGuard is powered by a Machine Learning model known as the Haar Cascade Classifier. Rather than relying on hardcoded shape-matching, this system utilizes a pre-trained model based on the Viola-Jones algorithm. It was trained on thousands of positive and negative images to statistically recognize the complex visual patterns of a human face. In this project, the AI acts as the foundational vision engine, scanning the live video feed in real-time to locate the driver. Once the AI successfully isolates the face, our custom spatial logic takes over to track the Y-axis displacement, detecting the physical head-drops associated with microsleeps.
+
 ● Technologies/Tools Used
 
 Programming Language: Python 3.x
