@@ -1,147 +1,75 @@
-PROJECT NAME-Easy Algo Visualizer
+● Project Title --SLEEPGUARD SMART DRIVER ALARMING SYSTEM
 
-> Terminal Maze Solver · 8 Algorithms · 4 Mazes · Pure Python · Zero Dependencies
+● Overview of the Project
 
+Drowsy driving is a leading cause of traffic accidents worldwide. Traditional monitoring solutions are often passive, merely recording footage without active intervention.
 
+SleepGuard is an Active Intervention System designed to enhance road safety. It transforms a standard laptop webcam into an intelligent sensor that monitors a driver's head posture in real-time. Utilizing computer vision, the system detects signs of fatigue (specifically nodding off) and triggers an immediate audio-visual alarm to wake the driver.It also collects a evidence of that exact moment when the person fell asleep in a dedicated folder.
 
-## Overview
+● Features
 
-I basically made an Easy Algo Visualizer is a terminal-based, animated maze-solving program written in pure Python. It brings 8 classic search algorithms to life — each one rendered step-by-step in your terminal with real-time colour highlighting of explored cells, the active frontier, and the final discovered path.
+Gamified Safety Score (Health Bar): Unlike simple on/off detectors, SleepGuard employs a dynamic "Fatigue Score" (0-100). This intuitive "Health Bar" visualizes the driver's alertness level—decreasing when the head drops and regenerating when posture is corrected.
 
-Unlike web-based visualizers, this runs entirely offline with **zero dependencies** beyond Python's standard library. Every algorithm has a distinct colour identity and the display updates live as the solver works through the maze.
+Adaptive posture calibiration: The system eliminates the need for manual setup or hard-coded values. Upon initialization, it performs a 3-second "Learning Phase," analyzing the driver's specific height and seating position to establish a personalized safety baseline.
 
+Offline evidence collection : Designed for reliability, the system operates entirely offline. In the event of a detected microsleep, it automatically generates a secure 'evidence' folder, saving a timestamped photo of the incident along with a detailed text log entry.
 
+Heads-Up Display (HUD): A futuristic, transparent overlay is drawn directly onto the video feed using image processing techniques. This HUD provides critical real-time feedback, including system status, low-light warnings, and target tracking indicators.
 
-## Features
+Integrated Command Center using python library: A professional Graphical User Interface (GUI) serves as the launchpad, allowing users to easily initialize the camera, view logs, or shut down the system with a single click.
 
-- **Animated Solvers** — 8 search algorithms with live step-by-step animation
-- **4 Mazes** — hand-crafted layouts with unique difficulty and structure
-- **Tournament Mode** — run all 8 algorithms silently and see a ranked leaderboard with 🥇🥈🥉
-- **Speed Control** — adjustable animation delay from 0.0s (instant) to 1.0s (slow-motion)
-- **Live HUD** — colour-coded cells: Start, Goal, Wall, Explored, Frontier, Path
-- **No Dependencies** — uses only `collections`, `heapq`, `time`, `os`, `sys`
+● Technologies/Tools Used
 
----
+Programming Language: Python 3.x
 
-## Installation & Setup
+Core Logic: Geometric Centroid Tracking (Vertical Displacement Analysis)
 
-### Requirements
-- Python 3.8 or higher (uses walrus operator `:=`)
-- A terminal that supports ANSI colour codes:
-  - Windows: **Windows Terminal** (recommended) or PowerShell
-  - macOS: Terminal or iTerm2
-  - Linux: Any terminal
+Computer Vision Library: OpenCV (cv2) - For face detection and image manipulation.
 
-### Steps
+Numerical Processing: NumPy - For calculating averages and handling array data.
 
-1. Clone the repo or download `labyrinthian_v2.py`
+User Interface (GUI): Tkinter - For the main menu/launchpad window.
 
-```bash
-git clone https://github.com/yourusername/easy-algo-visualizer
-cd easy-algo-visualizer
-```
+Audio Alerts: Winsound (Built-in Windows library) - For generating alarm beeps.
 
-2. Run the program — no pip installs needed:
+File Management: OS & Subprocess modules - For file creation and folder management.
 
-```bash
-python labyrinthian_v2.py
-```
- If `python` is not recognized, try `python3`. Make sure Python was installed with **"Add to PATH"** checked.
+AI Model: Haar Cascade Classifiers (haarcascade_frontalface_default.xml) - For robust face detection.
 
+● Steps to Install & Run the Project
 
+Install Python: Ensure Python 3.x is installed on your machine.
 
-## Controls
+Install Dependencies: Open your Command Prompt (CMD) or Terminal and run the following command: pip install opencv-python numpy
 
-| Key | Action |
-|-----|--------|
-| `1` – `8` | Run the corresponding algorithm with live animation |
-| `T` | Tournament mode — all 8 algorithms race, leaderboard shown |
-| `M` | Switch the active maze |
-| `S` | Set animation speed (e.g. `0.05` for fast, `0.15` for slow-motion) |
-| `Q` | Quit |
+Download the Model: You must download the haarcascade_frontalface_default.xml file from the official OpenCV repository.
 
+Download Link: https://github.com/opencv/opencv/tree/master/data/haarcascades
 
-## Algorithm Reference
+File Setup: Create a project folder and ensure the following two files are inside it:
 
-| Algorithm | Data Structure | Optimal? | Time | Space | Notes |
-|-----------|---------------|----------|------|-------|-------|
-| BFS | Queue (FIFO) | ✅ Yes | O(V+E) | O(V) | Guaranteed shortest path |
-| DFS | Stack (LIFO) | ❌ No | O(V+E) | O(depth) | Memory efficient, not optimal |
-| A\* | Priority Queue | ✅ Yes | O(b^d) | O(b^d) | Best overall — uses heuristic |
-| Dijkstra | Priority Queue | ✅ Yes | O((V+E)logV) | O(V) | Optimal for weighted graphs |
-| Greedy | Priority Queue | ❌ No | O(b^m) | O(b^m) | Fast but can be fooled |
-| Bidirectional | Two Queues | ✅ Yes | O(b^(d/2)) | O(b^(d/2)) | Searches from both ends |
-| IDA\* | Recursive Stack | ✅ Yes | O(b^d) | O(d) | Optimal + memory lean |
-| Beam | Bounded Queue | ❌ No | O(b·d) | O(b) | Fast, incomplete |
+The Python script main.py which is inside the repository
 
+The XML file (haarcascade_frontalface_default.xml) given inside the repo as well .
 
+Launch:
 
-## Available Mazes
+Open the project folder in File Explorer.
 
-| Maze | Size | Description |
-|------|------|-------------|
-| Classic | 9×9 | Where legends begin. A balanced maze for testing all algorithms. |
-| Vortex | 10×10 | Coiled like a serpent. Tests how algorithms handle spiral paths. |
-| Deceiver | 10×10 | Bristling with dead-ends. Punishes Greedy, rewards BFS and A\*. |
-| Tiny | 5×5 | Small but deadly. Great for understanding step-by-step flow. |
+Click the address bar at the top, type cmd, and press Enter.
 
----
+In the black window, type: python main.py
 
-## Display Legend
+● Instructions for Testing
 
-| Symbol | Meaning |
-|--------|---------|
-| `S` | Start node |
-| `G` | Goal node |
-| `█` | Wall |
-| `·` | Explored cell |
-| `*` | Frontier (next to be explored) |
-| `O` | Final path |
+Initialize: On the SleepGuard Command Center window, click the green "INITIALIZE CAMERA" button.
 
+Calibrate: Sit upright and look directly at the webcam. Wait for the yellow "CALIBRATING..." text on the screen to reach 100% and listen for the confirmation BEEP.
 
+Monitor: Observe the Green "HP Bar" on the left side of the HUD. This indicates normal alertness.
 
-## Instructions for Testing
+Simulate Fatigue: Slowly lower your head (chin towards chest) to mimic falling asleep.
 
-### Basic Run
-1. Launch the program and press `1` to run BFS on the Classic maze
-2. Watch the `·` cells expand outward ring by ring until the `O` path appears
-3. Press Enter to return to the menu
+Observe Reaction: Watch the HP Bar deplete. Once it hits zero, the screen will flash RED, and the audio alarm will sound.
 
-### Compare Algorithms
-1. Press `T` to enter Tournament mode
-2. All 8 algorithms run silently on the current maze
-3. A leaderboard appears — compare path length and cells explored
-4. Notice how A\* and Bidirectional explore far fewer cells than BFS or Dijkstra
-
-### Test a Hard Maze
-1. Press `M` → select **Deceiver**
-2. Run **Greedy** (`5`) — notice it struggles with dead-ends
-3. Run **A\*** (`3`) on the same maze — compare the difference in explored cells
-
-
-
-## Project Structure
-
-```
-labyrinthian_v2.py
-│
-├── Terminal & Colour     # RGB colour helpers, ANSI codes, cursor control
-├── MAZES dict            # 4 hand-crafted grid layouts with start/goal/lore
-├── nbrs / recon / mh     # Shared helpers: neighbours, path reconstruction, heuristic
-├── render / show_frame   # Terminal renderer — draws grid, legend, and stats bar
-├── gen_bfs … gen_beam    # 8 generator functions, each yields animation frames
-├── ALGOS list            # Registry linking key names to generator functions
-├── solve()               # Animates a single algorithm with adjustable delay
-├── tournament()          # Runs all 8 silently, prints ranked leaderboard
-└── menu() / main()       # Main loop — handles user input and routing
-```
-
-
-## Technologies Used
-
-- **Language** — Python 3.8+
-- **Standard Library** — `collections.deque` (BFS, Bidirectional), `heapq` (A\*, Dijkstra, Greedy, Beam)
-- **Terminal Rendering** — ANSI escape codes with 24-bit RGB colour
-- **Architecture** — Generator functions (`yield`) for frame-by-frame animation without threading
-- **Dependencies** — None
-.
+Review Evidence: Press 'q' on your keyboard to close the camera. Back on the main menu, click "OPEN LOCAL LOGS" to verify that the system successfully captured and saved the incident photo and text log.
